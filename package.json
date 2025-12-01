@@ -1,0 +1,84 @@
+{
+  "name": "sorry510-open-url",
+  "displayName": "open url",
+  "description": "open url in default browser",
+  "keywords": [
+    "open",
+		"url"
+	],
+  "version": "0.0.1",
+  "publisher": "sorry510",
+  "engines": {
+    "vscode": "^1.63.0"
+  },
+  "icon": "images/icon.png",
+  "repository": "https://github.com/sorry510/vscode-open-url.git",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.openUrl"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "properties": {
+        "openUrl.urls": {
+          "type": "array",
+          "description": "List of URLs to open. Each entry is an object with `label` and `url`.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "url": { "type": "string" }
+            },
+            "required": [ "url" ]
+          },
+          "default": [
+          ]
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "extension.openUrl",
+        "title": "web",
+        "description": "Open a configured URL in the default web browser."
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "extension.openUrl",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "extension.openUrl",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.93.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "eslint": "^9.9.1",
+    "typescript": "^5.5.4",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
