@@ -9,7 +9,7 @@
   "version": "0.0.1",
   "publisher": "sorry510",
   "engines": {
-    "vscode": "^1.63.0"
+    "vscode": "^1.93.0"
   },
   "icon": "images/icon.png",
   "repository": "https://github.com/sorry510/vscode-open-url.git",
